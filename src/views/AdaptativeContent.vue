@@ -2,7 +2,6 @@
   <div class="chatbot-container">
     <loading :active="loading" :message="loading_msg" />
     <div class="tasks__menu">
-        <span class="history__back" @click="redirect()">Cursos</span>
         <span
           class="tasks__menu-option"
           :class="{'active': show_study_content}"

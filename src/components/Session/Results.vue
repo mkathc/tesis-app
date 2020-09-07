@@ -11,7 +11,7 @@
         </v-btn>-->
     <section class="quizzes mb-4"> 
       <h1 v-if="title">{{title}}</h1>
-      <h2 v-if="sub_title">{{sub_title}}</h2>
+      <h2 v-if="show_button_next">{{sub_title}}</h2>
         <div >
         <v-btn v-if="show_button_adaptative"
             color="success"
