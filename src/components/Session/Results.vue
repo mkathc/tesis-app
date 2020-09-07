@@ -56,7 +56,7 @@ export default {
   }),
   mounted(){
     this.title = this.evaluation['puntaje'] + " puntos"
-    this.puntaje = 90
+    this.puntaje = this.evaluation['puntaje']
     if (this.puntaje < 20 ){
       this.show_button_complete = true
       this.show_button_adaptative = false
