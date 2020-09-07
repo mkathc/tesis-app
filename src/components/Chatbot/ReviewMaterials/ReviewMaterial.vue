@@ -8,17 +8,19 @@
     </div>
     <div class="m-fullscreen-content">
       <div class="material-content">
-        <!-- Category Explanation -->
+        <!-- Category Explanation 
         <div v-show="category_selected == 'explanation'" id="explanation-editor" class="category"></div>
-        <!-- Category Examples -->
+         Category Examples 
         <div v-show="category_selected == 'examples'" id="examples-editor" class="category"></div>
-        <!-- Category Movies -->
+           Category Movies 
         <div v-show="category_selected == 'movies'" id="movies-editor" class="category"></div>
-        <!-- Category Images -->
+         Category Images 
         <div v-show="category_selected == 'images'" id="images-editor" class="category"></div>
-        <!-- Category Hyperlinks -->
+         Category Hyperlinks 
         <div v-show="category_selected == 'hyperlinks'" id="hyperlinks-editor" class="category"></div>
-        <!-- Category Exercises -->
+         Category Exercises -->
+        <!--   Category Examples  -->
+        <div v-show="category_selected == 'examples'" id="examples-editor" class="category"></div>
         <Exercises
           class="category category-text"
           v-if="category_selected == 'exercises'"
@@ -40,10 +42,10 @@
             </div>
           </div>
         </div>
-        <!-- Category Quizzes -->
+        <!-- Category Quizzes
         <div v-if="category_selected == 'quizzes'">
           <Quizzes :quizzes="material.quizzes" />
-        </div>
+        </div> -->
         <!-- Category Document
         <div v-if="category_selected == 'documento'" class="category category-document">
           <embed :src="material[category_selected]" alt />
@@ -79,8 +81,8 @@ import Marker from "@editorjs/marker";
 import Embed from "@editorjs/embed";
 import LinkTool from "@editorjs/link";
 
-import Exercises from "./Exercises";
-import Quizzes from "./Quizzes";
+import Exercises from "@/components/Chatbot/Materials/Exercises";
+//import Quizzes from "./Quizzes";
 
 export default {
   props: [
@@ -132,8 +134,7 @@ export default {
     }
   },
   components: {
-    Exercises,
-    Quizzes
+    Exercises
   }
 };
 </script>

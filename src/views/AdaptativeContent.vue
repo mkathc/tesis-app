@@ -30,8 +30,11 @@
         >Contenido completo</span>
       </div>
     <v-row id="chatbot-scroll" class="chatbot-scroll fill-height" no-gutters>
-      <div class="chatbot-content col-12 col-md-8 m-fullscreen">
+      <div v-if="show_study_content || show_complete_content" class="chatbot-content col-12 col-md-8 m-fullscreen">
         <Materials class="m-fullscreen-content" ref="component_materials" :chatbot="chatbot" /> 
+      </div>
+      <div v-if="show_review_content" class="chatbot-content col-12 col-md-8 m-fullscreen">
+        <ReviewMaterials class="m-fullscreen-content" ref="component_materials" :chatbot="chatbot" /> 
       </div>
       <Chat class="chat-container col-12 col-md-4" :bot="bot" :knowledge="knowledge" />
     </v-row>
@@ -41,6 +44,7 @@
 <script>
 import Chat from "@/components/Chatbot/Chat/index";
 import Materials from "@/components/Chatbot/Materials/index";
+import ReviewMaterials from "@/components/Chatbot/ReviewMaterials/index";
 import loading from "@/components/loading";
 
 import { getParam } from "@/services/router.js";
@@ -96,6 +100,7 @@ export default {
   components: {
     Chat,
     Materials,
+    ReviewMaterials,
     loading
   },
   methods:{
