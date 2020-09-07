@@ -1,6 +1,9 @@
 <template>
-  <div>
-      <loading :active="loading" :message='loading_message' />
+ 
+  <div> 
+      <div>
+        <loading :active="loading" :message='loading_message' />
+      </div>
       <section v-if="!quiz && !results" class="section" id="section1">
           <h2>No se encontraron preguntas</h2>
       </section>
@@ -74,11 +77,9 @@ export default {
       return this.quiz[this.question_idx];
     }
   },
-  created(){
+  async mounted() {
     this.loading = true
     this.loading_message = 'Cargando preguntas'
-  },
-  async mounted() {
     let ids = await this.getMaterialList()
     let evaluation = await createEvaluation(ids);
     this.question_idx = 0;

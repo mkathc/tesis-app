@@ -12,6 +12,7 @@
     <section class="quizzes mb-4"> 
       <h1 v-if="title">{{title}}</h1>
       <h2 v-if="show_button_next">{{sub_title}}</h2>
+      <h1>  </h1>
         <div >
         <v-btn v-if="show_button_adaptative"
             color="success"
@@ -37,12 +38,19 @@
           >Siguiente Unidad</v-btn>
         </div>
     </section>
+
+    <div >
+      <!-- Avatar -->
+      <Avatar ref="component_avatar" />
+    </div>
      
   </div>
 </template>
 
 <script>
 import { getParam, redirect } from "@/services/router.js";
+import Avatar from "@/components/Chatbot/Chat/Avatar"
+import { SpeechToText } from "@/services/speech";
 
 export default {
   props: ["evaluation"],
@@ -52,23 +60,31 @@ export default {
     show_button_adaptative: false,
     show_button_complete: false,
     show_button_next: false,
-    puntaje: 0
+    puntaje: 0,
+    message_text: ""
   }),
   mounted(){
-    this.title = this.evaluation['puntaje'] + " puntos"
-    this.puntaje = this.evaluation['puntaje']
+    this.$store.commit("setComponentAvatar", this.$refs.component_avatar);
+    this.puntaje = Math.round(this.evaluation['puntaje'])
+    this.title = this.puntaje + " puntos"
     if (this.puntaje < 20 ){
       this.show_button_complete = true
       this.show_button_adaptative = false
       this.show_button_next = false
+      this.message_text = "Tu puntaje es" + this.puntaje + "Vamos a mejorar revisando toda la unidad"
+      this.addMessage(this.message_text)
     }else{
       if (this.puntaje > 80){
         this.sub_title = "Felicitaciones, puedes avanzar a la siguiente unidad"
         this.show_button_next = true
+        this.message_text = "Feilicitaciones, tu puntaje es" + this.puntaje + "Vamos a seguir aprendiendo en la siguiente unidad"
+        this.addMessage(this.message_text)
       }else{
         this.show_button_adaptative = true
         this.show_button_complete = false
         this.show_button_next = false
+        this.message_text = "Tu puntaje es" + this.puntaje + "Vamos a seguir revisando la unidad"
+        this.addMessage(this.message_text)
       }
     }
   },
@@ -98,7 +114,25 @@ export default {
     },
     nextUnit(){
       redirect("sessions-student");
+    },
+    addMessage(text) {
+      this.component_avatar.startTalk(text);
+    },
+     talkMessage() {
+      this.component_avatar.stopTalk();
+      SpeechToText(text => {
+        this.message_text = text;
+        this.sendMessage();
+      });
+    },
+  },
+  computed:{
+    component_avatar() {
+      return this.$store.state.component_avatar;
     }
+  },
+  components:{
+    Avatar
   }
 };
 </script>

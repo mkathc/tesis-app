@@ -23,7 +23,7 @@ import { mapState } from "vuex";
 export default {
   data: () => ({
     loading: false,
-    loading_msg: "",
+    loading_msg: "Cargando Preguntas",
   }),
   computed: {
     ...mapState(["user"])
