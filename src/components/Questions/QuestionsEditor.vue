@@ -56,8 +56,6 @@ export default {
         if (question_list.length<5){
           this.$root.$children[0].showMessage("Error", "Ingrese como mínimo 5 preguntas");
         }else{
-          console.log(this.quiz)
-          console.log(question_list)
           //let final_list = question_list.filter(this.comparer(this.quiz))
           question_list.forEach(element => {
             if(element._id == undefined){
@@ -65,7 +63,6 @@ export default {
               final_list.push(element)
             }
           });
-          console.log(final_list)
           await addQuestionByMaterial(final_list)
         }
       } catch (error) {
