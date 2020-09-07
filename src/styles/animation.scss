@@ -1,0 +1,13 @@
+.transform-scale {
+  transition: all 200ms;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.transform-scale-plus {
+  transition: all 200ms;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
