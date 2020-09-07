@@ -74,7 +74,6 @@ export default {
   },
   methods:{
     adaptativeContent(){
-      console.log("Mostrar contenido adaptado")
       let incorrects = this.evaluation['incorrects']
       let list_incorrects = incorrects['lista_incorrects']
       let material_list_incorrects = []
@@ -83,7 +82,6 @@ export default {
       });
 
       let chatbot_id = getParam('chatbot_id')
-      console.log(material_list_incorrects)
 
       let corrects = this.evaluation['corrects']
       let list_corrects = corrects['lista_corrects']
@@ -91,7 +89,6 @@ export default {
       list_corrects.forEach(element => {
         material_list_corrects.push(element['materialId'])
       });
-      console.log(material_list_corrects)
 
       redirect("adaptative-content", { material_id: material_list_incorrects, chatbot_id: chatbot_id, review_id:material_list_corrects });
     },
