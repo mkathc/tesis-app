@@ -1,4 +1,6 @@
-# braintutor
+# Niveles App
+
+Levantar el proyecto y probar la pestañana "Evalúa tu nivel" en perfil alumno, y carga de preguntas en perfil tutor
 
 ## Project setup
 ```
