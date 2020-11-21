@@ -69,29 +69,10 @@
 
 <script>
 
-class Pregunta {
-  constructor(enunciado, alternatives) {
-    this.enunciado = enunciado;
-    this.alternatives = alternatives;
-    this.answer = null;
-  }
-}
-
 export default {
   props: ["quizzes"],
   data: () => ({
-    quiz: [ new Pregunta("Qué es una fracción", [
-        "Es un número, que se obtiene de dividir un entero en partes iguales",
-        "Es una multiplicación"
-      ]),
-      new Pregunta(
-        "¿De qué se compone una fracción?",
-        ["La fracción está formada por dos términos: el numerador y el denominador", "Números"]
-      ),
-      new Pregunta(
-        "¿Qué es el denominador?",
-        ["El denominador es el número de partes iguales en que se ha dividido la unidad o total", "Es un número"]
-      )],
+    quiz: [],
     question_idx: 0
   }),
   computed: {

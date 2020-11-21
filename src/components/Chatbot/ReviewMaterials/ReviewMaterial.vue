@@ -24,13 +24,13 @@
         <Exercises
           class="category category-text"
           v-if="category_selected == 'exercises'"
-          :exercises="material[category_selected]"
+          :exercises="material.data_fs[category_selected]"
           :talk="text => {startTalk(text)}"
         />
         <!-- Category FAQ -->
         <div v-if="category_selected == 'faq'">
           <div
-            v-for="(faq, f_idx) in material[category_selected]"
+            v-for="(faq, f_idx) in material.data_fs[category_selected]"
             :key="f_idx"
             class="category category-text"
           >
@@ -115,7 +115,7 @@ export default {
               }
             }
           },
-          data: JSON.parse(this.material[category])
+          data: JSON.parse(this.material.data_fs[category])
         });
       }
     );

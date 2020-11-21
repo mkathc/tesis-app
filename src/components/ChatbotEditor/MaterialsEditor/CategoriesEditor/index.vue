@@ -42,19 +42,19 @@
       <div v-if="category_selected === 'images'" class="category">
         <div class="category-menu">
           <span>Imágenes</span>
-          <v-btn icon @click="addImage(material.images)">
+          <v-btn icon @click="addImage(material.data_fs.images)">
             <v-icon>mdi-plus-circle</v-icon>
           </v-btn>
         </div>
         <div
           class="category-bullet"
-          v-for="(image, i_idx) in material.images"
+          v-for="(image, i_idx) in material.data_fs.images"
           :key="image || i_idx"
         >
           <div class="category-bullet-content pa-2">
             <ImageUpload :image="image" :callback="image_iu => saveImage(image_iu, i_idx)" />
           </div>
-          <v-menu v-if="material.images.length > 1" offset-y>
+          <v-menu v-if="material.data_fs.images.length > 1" offset-y>
             <template v-slot:activator="{ on }">
               <v-btn icon v-on="on">
                 <v-icon>mdi-dots-vertical</v-icon>
@@ -404,7 +404,7 @@ export default {
       images.push("");
     },
     saveImage(image_iu, i_idx) {
-      this.material.images[i_idx] = image_iu;
+      this.material.data_fs.images[i_idx] = image_iu;
     },
     addFAQ(faq) {
       faq.push({

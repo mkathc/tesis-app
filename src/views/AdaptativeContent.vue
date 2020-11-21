@@ -167,7 +167,7 @@ export default {
             });
           }
         });
-        material.faq.forEach(({ question, answer }) => {
+        material.data_fs.faq.forEach(({ question, answer }) => {
           knowledge.push({
             questions: [question],
             answers: [answer],
@@ -248,7 +248,7 @@ export default {
             });
           }
         });
-        material.faq.forEach(({ question, answer }) => {
+        material.data_fs.faq.forEach(({ question, answer }) => {
           knowledge.push({
             questions: [question],
             answers: [answer],
@@ -314,7 +314,7 @@ export default {
             });
           }
         });
-        material.faq.forEach(({ question, answer }) => {
+        material.data_fs.faq.forEach(({ question, answer }) => {
           knowledge.push({
             questions: [question],
             answers: [answer],

@@ -1,5 +1,6 @@
-const service = 'https://chatbot-api-tesis.herokuapp.com/'
+const service = 'http://127.0.0.1:5000/'
 const seconde_service = 'https://tesisapi.herokuapp.com'
+//const service = 'https://chatbot-api-tesis.herokuapp.com/'
 
 //const service = 'https://braintutor-service-v2.herokuapp.com'
 
