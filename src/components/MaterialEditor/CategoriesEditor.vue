@@ -27,13 +27,13 @@
         <span class="editor__title">{{categories[category].name}}</span>
       </div>
       <!-- Overview -->
-      <TextEditor v-if="category === 'overview'" :text="material[category]" @submit="save" />
+      <TextEditor v-if="category === 'overview'" :text="material.data_fs[category]" @submit="save" />
       <!-- Exercises -->
-      <QuizEditor v-else-if="category === 'exercises'" :quiz="material[category]" @submit="save" />
+      <QuizEditor v-else-if="category === 'exercises'" :quiz="material.data_fs[category]" @submit="save" />
       <!-- FAQ -->
-      <FAQEditor v-else-if="category === 'faq'" :faq="material[category]" @submit="save" />
+      <FAQEditor v-else-if="category === 'faq'" :faq="material.data_fs[category]" @submit="save" />
       <!-- Default -->
-      <DocumentEditor v-else class="m-card" :data="material[category]" @submit="save" />
+      <DocumentEditor v-else class="m-card" :data="material.data_fs[category]" @submit="save" />
     </section>
   </div>
 </template>
